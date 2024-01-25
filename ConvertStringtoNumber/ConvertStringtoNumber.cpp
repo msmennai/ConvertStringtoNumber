@@ -13,14 +13,16 @@ int convert2Number(char* myStr,int size)
     
    static int pos  = 0;
    int res;
+
    if (pos == 0 && !isdigit(myStr[pos++]))
        res = 0;
    else
        res = (myStr[pos++] - '0')* (pow(10, --size));
-   return  res + convert2Number(myStr, size);
-   
+
+   return  res + convert2Number(myStr, size);  
 
 }
+
 int main()
 {
 
@@ -37,19 +39,19 @@ int main()
         {
             if (size == 0 && myString[size] == '-' && myString[size+1] != 0)
                 negative = true;
-
-            else {
+            else 
+            {
                 cout << "Not a valid Number\n";
                 return 0;
             }
         }
         size++;
     }
+
    int result = convert2Number(myString,size-1);
    negative ? cout << result * -1 : cout <<result;
-    return 0;
+   return 0;
    
-
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
